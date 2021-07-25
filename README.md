@@ -12,3 +12,5 @@ A more efficient replacement for internal MTA:SA data system called element data
 
 # Detailed guide, which also covers few important topics
 [See forum topic for all details](https://forum.mtasa.com/topic/127520-tut-lua-tables-as-a-efficient-data-system-custom-element-data/)
+
+cos tam
