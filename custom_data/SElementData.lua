@@ -346,17 +346,12 @@ addEventHandler("onServerPlayerReady", root, onServerPlayerReady)
 ]]
 
 function onElementQuitAndDestroy()
-	local notPlayerType = getElementType(source) ~= "player" -- check if element which got destroyed or quit isn't player
+	localData[source] = nil -- clear any local data stored under element index
+	syncedData[source] = nil -- clear any synced data stored under element index
+	privateData[source] = nil -- clear any private data stored under element index
 
-	localData[source] = nil -- clear any local data stored under player index
-	syncedData[source] = nil -- clear any synced data stored under player index
-	privateData[source] = nil -- clear any private data stored under player index
-
-	if notPlayerType then
-
-		for _, playerData in pairs(privateData) do
-			playerData[source] = nil
-		end
+	for _, playerData in pairs(privateData) do
+		playerData[source] = nil
 	end
 end
 addEventHandler("onPlayerQuit", playerElements, onElementQuitAndDestroy) -- let's bind handler just for players which are stored in our 'playerElements' parent
