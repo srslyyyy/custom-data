@@ -330,9 +330,9 @@ addEventHandler("onClientResourceStart", resourceRoot, onClientResourceStart)
 ]]
 
 function onClientElementQuitAndDestroy()
-	localData[source] = nil -- clear any local data stored under player index
-	syncedData[source] = nil -- clear any synced data stored under player index
-	privateData[source] = nil -- clear any private data stored under player index
+	localData[source] = nil -- clear any local data stored under element index
+	syncedData[source] = nil -- clear any synced data stored under element index
+	privateData[source] = nil -- clear any private data stored under element index
 end
 addEventHandler("onClientPlayerQuit", playerElements, onClientElementQuitAndDestroy) -- let's bind handler just for players which are stored in our 'playerElements' parent
 addEventHandler("onClientElementDestroy", otherElements, onClientElementQuitAndDestroy) -- let's bind handler just for elements which are stored in our 'otherElements' parent
